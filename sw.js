@@ -1,5 +1,6 @@
 // 言の葉の音：オフライン用サービスワーカー
-const SHELL = "kn-shell-v1";
+const SHELL = "kn-shell-v2";
+const IMAGES = "kn-images-v1";
 const FONTS = "kn-fonts-v1";
 const SONGS = "kn-songs-v1";
 const SHELL_FILES = [
@@ -8,9 +9,7 @@ const SHELL_FILES = [
   "manifest.webmanifest",
   "icon-192.png",
   "icon-512.png",
-  "apple-touch-icon.png",
-  "nagi.jpg",
-  "jounetsu.jpg"
+  "apple-touch-icon.png"
 ];
 
 self.addEventListener("install", (event) => {
@@ -18,7 +17,7 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("activate", (event) => {
-  const keep = [SHELL, FONTS, SONGS];
+  const keep = [SHELL, IMAGES, FONTS, SONGS];
   event.waitUntil(
     caches.keys()
       .then((keys) => Promise.all(keys.filter((k) => keep.indexOf(k) < 0).map((k) => caches.delete(k))))
@@ -57,8 +56,27 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // それ以外：保存済みがあればそれを使う（曲は「オフライン保存」したときだけ保存）
-  if (url.origin === self.location.origin) {
+  if (url.origin !== self.location.origin) return;
+
+  // 曲：「オフライン保存」したものだけ保存版を使う
+  if (url.pathname.endsWith(".bin")) {
     event.respondWith(caches.match(req).then((hit) => hit || fetch(req)));
+    return;
   }
+
+  // ジャケット画像：保存版をすぐ出し、裏で新しい版に更新
+  if (url.pathname.endsWith(".jpg")) {
+    event.respondWith(
+      caches.match(req).then((hit) => {
+        const net = fetch(req).then((res) => {
+          if (res.ok) { const copy = res.clone(); caches.open(IMAGES).then((c) => c.put(req, copy)); }
+          return res;
+        }).catch(() => hit);
+        return hit || net;
+      })
+    );
+    return;
+  }
+
+  event.respondWith(caches.match(req).then((hit) => hit || fetch(req)));
 });

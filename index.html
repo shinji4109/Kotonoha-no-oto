@@ -540,8 +540,28 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--ink); outli
   const K = ["5gMBwL55UA=", "GDlCY7BPYbQ", "/Nw42z5haZA", "I0Rln9vNQOU"];
   // tanka：原点の短歌を句の区切りごとに配列で入れると、縦書きで表示されます（空なら非表示）
   const TRACKS = [
-    { id: "nagi", title: "凪", file: "nagi.bin", art: "nagi.jpg", accentL: "#2A4E9C", accentD: "#A9BEF0", length: 259.88, tanka: [] },
-    { id: "jounetsu", title: "この情熱が　僕の声になる", file: "jounetsu.bin", art: "jounetsu.jpg", accentL: "#A7362F", accentD: "#F0A898", length: 289.56, tanka: [] }
+    {"id": "nagi", "title": "凪", "file": "nagi.bin", "art": "nagi.jpg", "thumb": "nagi-s.jpg", "accentL": "#2A4E9C", "accentD": "#A9BEF0", "length": 259.92, "tanka": []},
+    {"id": "jounetsu", "title": "この情熱が、僕の声になる", "file": "jounetsu.bin", "art": "jounetsu.jpg", "thumb": "jounetsu-s.jpg", "accentL": "#A7362F", "accentD": "#F0A898", "length": 289.58, "tanka": []},
+    {"id": "pachan-ondo", "title": "ぱーちゃん音頭", "file": "pachan-ondo.bin", "art": "pachan-ondo.jpg", "thumb": "pachan-ondo-s.jpg", "accentL": "#985C20", "accentD": "#F1C79D", "length": 209.76, "tanka": []},
+    {"id": "odotte-pachan", "title": "踊ってぱーちゃん", "file": "odotte-pachan.bin", "art": "odotte-pachan-v2.jpg", "thumb": "odotte-pachan-v2-s.jpg", "accentL": "#A15B17", "accentD": "#F4C69A", "length": 136.75, "tanka": []},
+    {"id": "dakara-dakara", "title": "だから、だから", "file": "dakara-dakara.bin", "art": "dakara-dakara.jpg", "thumb": "dakara-dakara-s.jpg", "accentL": "#994A1F", "accentD": "#F2BA9C", "length": 193.03, "tanka": []},
+    {"id": "kaminari", "title": "神鳴り", "file": "kaminari.bin", "art": "kaminari.jpg", "thumb": "kaminari-s.jpg", "accentL": "#855532", "accentD": "#E6C2A8", "length": 259.68, "tanka": []},
+    {"id": "hikari-no-hana", "title": "光の華", "file": "hikari-no-hana.bin", "art": "hikari-no-hana.jpg", "thumb": "hikari-no-hana-s.jpg", "accentL": "#A14E17", "accentD": "#F4BE9A", "length": 148.94, "tanka": []},
+    {"id": "ao-hitotsu-sumamuni", "title": "あお、ひとつ（スマムニver.）", "file": "ao-hitotsu-sumamuni.bin", "art": "ao-hitotsu-sumamuni.jpg", "thumb": "ao-hitotsu-sumamuni-s.jpg", "accentL": "#1F6F99", "accentD": "#9CD4F2", "length": 145.68, "tanka": []},
+    {"id": "mune-no-oku", "title": "胸の奥のスタートライン", "file": "mune-no-oku.bin", "art": "mune-no-oku.jpg", "thumb": "mune-no-oku-s.jpg", "accentL": "#A16017", "accentD": "#F4CA9A", "length": 189.79, "tanka": []},
+    {"id": "rekishi", "title": "歴史は繰り返す", "file": "rekishi.bin", "art": "rekishi.jpg", "thumb": "rekishi-s.jpg", "accentL": "#8D4B2B", "accentD": "#EBBBA3", "length": 219.62, "tanka": []},
+    {"id": "jikanron", "title": "時間論", "file": "jikanron.bin", "art": "jikanron.jpg", "thumb": "jikanron-s.jpg", "accentL": "#325F85", "accentD": "#A8C9E6", "length": 258.5, "tanka": []},
+    {"id": "ao-hitotsu", "title": "あお、ひとつ", "file": "ao-hitotsu.bin", "art": "ao-hitotsu.jpg", "thumb": "ao-hitotsu-s.jpg", "accentL": "#186BA0", "accentD": "#9AD1F4", "length": 174.67, "tanka": []},
+    {"id": "tomoru-haru", "title": "灯る春", "file": "tomoru-haru.bin", "art": "tomoru-haru.jpg", "thumb": "tomoru-haru-s.jpg", "accentL": "#855232", "accentD": "#E6C0A8", "length": 263.4, "tanka": []},
+    {"id": "kienai-sora", "title": "消えない空", "file": "kienai-sora.bin", "art": "kienai-sora-v2.jpg", "thumb": "kienai-sora-v2-s.jpg", "accentL": "#326585", "accentD": "#A8CEE6", "length": 243.55, "tanka": []},
+    {"id": "suiheisen", "title": "水平線のプリズム", "file": "suiheisen.bin", "art": "suiheisen-v2.jpg", "thumb": "suiheisen-v2-s.jpg", "accentL": "#915627", "accentD": "#EDC3A1", "length": 207.84, "tanka": []},
+    {"id": "ienai-sayonara", "title": "言えないサヨナラ", "file": "ienai-sayonara.bin", "art": "ienai-sayonara.jpg", "thumb": "ienai-sayonara-s.jpg", "accentL": "#905A28", "accentD": "#ECC6A2", "length": 156.38, "tanka": []},
+    {"id": "rains-beginning", "title": "Rain’s Beginning", "file": "rains-beginning.bin", "art": "rains-beginning-v2.jpg", "thumb": "rains-beginning-v2-s.jpg", "accentL": "#2D4FA0", "accentD": "#A9BEF0", "length": 211.7, "tanka": []},
+    {"id": "habataki", "title": "羽ばたき", "file": "habataki.bin", "art": "habataki.jpg", "thumb": "habataki-s.jpg", "accentL": "#325685", "accentD": "#A8C2E6", "length": 228.12, "tanka": []},
+    {"id": "birthday", "title": "あなたとバースデー（灯音）", "file": "birthday.bin", "art": "birthday.jpg", "thumb": "birthday-s.jpg", "accentL": "#A3302B", "accentD": "#F0A39A", "length": 92.19, "tanka": []},
+    {"id": "hajimari-no-ame", "title": "始まりの雨", "file": "hajimari-no-ame.bin", "art": "hajimari-no-ame-v2.jpg", "thumb": "hajimari-no-ame-v2-s.jpg", "accentL": "#326585", "accentD": "#A8CDE6", "length": 204.31, "tanka": []},
+    {"id": "kouen-banjou", "title": "光焔万丈", "file": "kouen-banjou.bin", "art": "kouen-banjou.jpg", "thumb": "kouen-banjou-s.jpg", "accentL": "#A16117", "accentD": "#F4CA9A", "length": 209.88, "tanka": []},
+    {"id": "yakusoku", "title": "約束のパスワード", "file": "yakusoku.bin", "art": "yakusoku.jpg", "thumb": "yakusoku-s.jpg", "accentL": "#326485", "accentD": "#A8CDE6", "length": 127.68, "tanka": []}
   ];
 
   const $ = (id) => document.getElementById(id);
@@ -807,7 +827,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--ink); outli
       row.type = "button";
       row.className = "row";
       const img = document.createElement("img");
-      img.src = t.art;
+      img.src = t.thumb;
       img.alt = "";
       img.loading = "lazy";
       const mid = document.createElement("span");
@@ -901,7 +921,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--ink); outli
     const sum = $("sum");
     sum.textContent = "";
     const a = document.createElement("span"); a.textContent = "全" + TRACKS.length + "曲";
-    const b = document.createElement("span"); b.textContent = Math.floor(total / 60) + "分" + (total % 60) + "秒";
+    const b = document.createElement("span"); b.textContent = total >= 3600 ? Math.floor(total / 3600) + "時間" + Math.floor((total % 3600) / 60) + "分" : Math.floor(total / 60) + "分" + (total % 60) + "秒";
     sum.append(a, b);
   }
 
@@ -944,7 +964,7 @@ button:focus-visible, input:focus-visible { outline: 2px solid var(--ink); outli
         saved.add(need[k].id);
         markRows();
       }
-      await c.addAll(TRACKS.map((t) => t.art)).catch(() => {});
+      await c.addAll(TRACKS.flatMap((t) => [t.art, t.thumb])).catch(() => {});
       if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
       setStatus("");
     } catch (e) {
